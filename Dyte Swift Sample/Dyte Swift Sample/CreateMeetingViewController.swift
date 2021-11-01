@@ -26,10 +26,44 @@ class CreateMeetingViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "OK", style: .cancel))
             self.present(alert, animated: true, completion: nil)
         } else {
-            
+            createMeeting(meetingTitle: meetingTitle.text!, participantName: participantName.text!)
         }
     }
-
+    
+    func createMeeting(meetingTitle: String, participantName: String) -> Void {
+        let meetingDetails: Parameters = ["title": meetingTitle]
+        AF.request("https://dyte-sample.herokuapp.com/meeting/create", method: .post, parameters: meetingDetails, encoding: JSONEncoding.prettyPrinted).responseString {
+            response in print("Response String: \(response.value ?? "error")")
+            let data = response.value!.data(using: .utf8)
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! Dictionary<String, AnyObject>
+                let meeting = json["data"]!["meeting"] as! Dictionary<String, AnyObject>
+                self.addParticipant(meetingID: meeting["id"] as! String, participantName: participantName)
+            }
+            catch {
+                print("caught error")
+            }
+        }
+    }
+    
+    func addParticipant(meetingID: String, participantName: String) -> Void {
+        let userDetails: Parameters = [ "name": participantName ]
+        let participantDetails: Parameters = [ "meetingId": meetingID, "clientSpecificId": UUID().uuidString, "userDetails": userDetails ]
+        AF.request("https://dyte-sample.herokuapp.com/participant/create", method: .post, parameters: participantDetails, encoding: JSONEncoding.prettyPrinted).responseString {
+            response in print("Response String: \(response.value ?? "error")")
+            let data = response.value!.data(using: .utf8)
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! Dictionary<String, AnyObject>
+                print(json)
+                let auth = json["data"]!["authResponse"] as! Dictionary<String, AnyObject>
+                let authToken = auth["authToken"] as! String
+            }
+            catch {
+                print("caught error")
+            }
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
