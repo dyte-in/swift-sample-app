@@ -1,0 +1,20 @@
+PODS:
+  - Alamofire (5.4.4)
+  - DyteSdk (1.13)
+
+DEPENDENCIES:
+  - Alamofire
+  - DyteSdk
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - DyteSdk
+
+SPEC CHECKSUMS:
+  Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
+  DyteSdk: 61c9a76523fe67e69ea20f6425c8bbccf3d4869f
+
+PODFILE CHECKSUM: f06ea2e92afa900f9147f3abcfeb133a67e4bc8c
+
+COCOAPODS: 1.10.1
