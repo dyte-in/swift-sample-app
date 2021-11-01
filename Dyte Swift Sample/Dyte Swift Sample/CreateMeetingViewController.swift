@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import DyteSdk
 
 class CreateMeetingViewController: UIViewController {
     
@@ -38,7 +39,7 @@ class CreateMeetingViewController: UIViewController {
             do {
                 let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! Dictionary<String, AnyObject>
                 let meeting = json["data"]!["meeting"] as! Dictionary<String, AnyObject>
-                self.addParticipant(meetingID: meeting["id"] as! String, participantName: participantName)
+                self.addParticipant(meetingID: meeting["id"] as! String, roomName: meeting["roomName"] as! String, participantName: participantName)
             }
             catch {
                 print("caught error")
@@ -46,7 +47,7 @@ class CreateMeetingViewController: UIViewController {
         }
     }
     
-    func addParticipant(meetingID: String, participantName: String) -> Void {
+    func addParticipant(meetingID: String, roomName: String, participantName: String) -> Void {
         let userDetails: Parameters = [ "name": participantName ]
         let participantDetails: Parameters = [ "meetingId": meetingID, "clientSpecificId": UUID().uuidString, "userDetails": userDetails ]
         AF.request("https://dyte-sample.herokuapp.com/participant/create", method: .post, parameters: participantDetails, encoding: JSONEncoding.prettyPrinted).responseString {
@@ -57,11 +58,27 @@ class CreateMeetingViewController: UIViewController {
                 print(json)
                 let auth = json["data"]!["authResponse"] as! Dictionary<String, AnyObject>
                 let authToken = auth["authToken"] as! String
+                DispatchQueue.main.async {
+                    self.addDyteView(roomName: roomName, authToken: authToken)
+                }
+                
             }
             catch {
                 print("caught error")
             }
         }
+    }
+    
+    func addDyteView(roomName: String, authToken: String) -> Void {
+        let config = DyteMeetingConfig();
+        config.roomName = roomName;
+        config.authToken = authToken;
+        config.width = self.view.safeAreaLayoutGuide.layoutFrame.size.width
+        config.height = self.view.safeAreaLayoutGuide.layoutFrame.size.height
+        let dyteView = DyteMeetingView(frame: CGRect(x: 0, y: self.view.safeAreaInsets.top, width: self.view.safeAreaLayoutGuide.layoutFrame.size.width, height: self.view.safeAreaLayoutGuide.layoutFrame.size.height ))
+        dyteView.tag = 10
+        self.view.addSubview(dyteView)
+        dyteView.join(config);
     }
     
     /*
