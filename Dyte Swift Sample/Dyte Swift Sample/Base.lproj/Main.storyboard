@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19150" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="s14-He-cXS">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19134"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -50,8 +51,9 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zYy-kC-WLh">
                                         <rect key="frame" x="86.5" y="310" width="67" height="31"/>
+                                        <color key="tintColor" systemColor="systemIndigoColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Create"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="Create"/>
                                         <connections>
                                             <action selector="createButtonAction" destination="Lpe-7d-LwX" eventType="touchUpInside" id="SDt-jQ-eky"/>
                                         </connections>
@@ -76,19 +78,39 @@
                                     <constraint firstItem="WLY-r1-LwI" firstAttribute="top" secondItem="KtC-N6-In0" secondAttribute="bottom" constant="20" id="xON-Q1-CgU"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CVH-xm-hnV">
+                                <rect key="frame" x="177" y="398.5" width="60" height="60"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Dah-B0-o6k">
+                                        <rect key="frame" x="11.5" y="11.5" width="37" height="37"/>
+                                        <color key="tintColor" systemColor="systemIndigoColor"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Dah-B0-o6k" firstAttribute="centerX" secondItem="CVH-xm-hnV" secondAttribute="centerX" id="PdH-09-d45"/>
+                                    <constraint firstAttribute="width" secondItem="CVH-xm-hnV" secondAttribute="height" multiplier="1:1" id="m2L-Pu-3eU"/>
+                                    <constraint firstItem="Dah-B0-o6k" firstAttribute="centerY" secondItem="CVH-xm-hnV" secondAttribute="centerY" id="u8L-1h-GIh"/>
+                                    <constraint firstAttribute="width" constant="60" id="vp5-oE-u9B"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Q8h-5r-Dh8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="zsE-I2-yJM" firstAttribute="top" secondItem="Q8h-5r-Dh8" secondAttribute="top" constant="80" id="Np5-Tz-cui"/>
                             <constraint firstItem="zsE-I2-yJM" firstAttribute="centerX" secondItem="Q8h-5r-Dh8" secondAttribute="centerX" id="Q3N-1y-sCe"/>
+                            <constraint firstItem="CVH-xm-hnV" firstAttribute="centerX" secondItem="Q8h-5r-Dh8" secondAttribute="centerX" id="bA1-AA-K2c"/>
+                            <constraint firstItem="CVH-xm-hnV" firstAttribute="centerY" secondItem="Q8h-5r-Dh8" secondAttribute="centerY" id="d99-Ep-A1M"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Create a meeting" id="YUd-wO-h8X">
                         <imageReference key="image" image="video.badge.plus.fill" catalog="system"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="Dah-B0-o6k" id="HkN-rF-L8u"/>
                         <outlet property="createButton" destination="zYy-kC-WLh" id="gGA-wO-T64"/>
+                        <outlet property="loadingView" destination="CVH-xm-hnV" id="WOx-gV-vMY"/>
                         <outlet property="meetingTitle" destination="WLY-r1-LwI" id="Pgg-aQ-erb"/>
                         <outlet property="participantName" destination="fMZ-cg-uum" id="Lad-po-nTL"/>
                     </connections>
@@ -114,6 +136,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="myd-qv-23x">
+                                        <rect key="frame" x="20" y="105" width="200" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="VTs-W2-QwC" id="ZR4-gM-ZOX"/>
+                                        </connections>
+                                    </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MzA-vv-rpV">
                                         <rect key="frame" x="57.5" y="203" width="125" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -130,20 +160,13 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2iv-Vg-3dc">
                                         <rect key="frame" x="94.5" y="310" width="51" height="31"/>
+                                        <color key="tintColor" systemColor="systemIndigoColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Join"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="Join"/>
                                         <connections>
                                             <action selector="joinButtonAction" destination="VTs-W2-QwC" eventType="touchUpInside" id="xAt-Rj-iG0"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="myd-qv-23x">
-                                        <rect key="frame" x="20" y="105" width="200" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="VTs-W2-QwC" id="ZR4-gM-ZOX"/>
-                                        </connections>
-                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -164,19 +187,39 @@
                                     <constraint firstItem="1fU-TC-iNP" firstAttribute="leading" secondItem="YYS-aC-8L2" secondAttribute="leading" constant="20" symbolic="YES" id="yeO-N6-chb"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gYK-7o-stg">
+                                <rect key="frame" x="177" y="398.5" width="60" height="60"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Ypn-AG-IuM">
+                                        <rect key="frame" x="11.5" y="11.5" width="37" height="37"/>
+                                        <color key="tintColor" systemColor="systemIndigoColor"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Ypn-AG-IuM" firstAttribute="centerY" secondItem="gYK-7o-stg" secondAttribute="centerY" id="7Tj-Gg-FE1"/>
+                                    <constraint firstAttribute="width" constant="60" id="k4R-Ob-vkU"/>
+                                    <constraint firstItem="Ypn-AG-IuM" firstAttribute="centerX" secondItem="gYK-7o-stg" secondAttribute="centerX" id="uxH-Bw-iYe"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gbj-TU-BWZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="gYK-7o-stg" firstAttribute="centerX" secondItem="gbj-TU-BWZ" secondAttribute="centerX" id="6eq-vD-tfz"/>
+                            <constraint firstItem="gYK-7o-stg" firstAttribute="centerY" secondItem="gbj-TU-BWZ" secondAttribute="centerY" id="EhG-vn-sNx"/>
                             <constraint firstItem="YYS-aC-8L2" firstAttribute="centerX" secondItem="gbj-TU-BWZ" secondAttribute="centerX" id="VaZ-Kl-a98"/>
                             <constraint firstItem="YYS-aC-8L2" firstAttribute="top" secondItem="gbj-TU-BWZ" secondAttribute="top" constant="80" id="bf3-OR-fud"/>
+                            <constraint firstItem="gYK-7o-stg" firstAttribute="width" secondItem="gYK-7o-stg" secondAttribute="height" multiplier="1:1" id="jOs-AY-xW2"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Join a meeting" id="uCC-Jj-VPO">
                         <imageReference key="image" image="arrow.down.left.video.fill" catalog="system"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="Ypn-AG-IuM" id="aJn-fb-sP5"/>
                         <outlet property="joinButton" destination="2iv-Vg-3dc" id="ZPm-Yk-YSJ"/>
+                        <outlet property="loadingView" destination="gYK-7o-stg" id="vZG-0d-ezl"/>
                         <outlet property="participantName" destination="1fU-TC-iNP" id="Uc2-BG-P3Z"/>
                         <outlet property="roomName" destination="myd-qv-23x" id="p30-ot-yRl"/>
                     </connections>
@@ -193,6 +236,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" systemColor="systemIndigoColor"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="Lpe-7d-LwX" kind="relationship" relationship="viewControllers" id="IGh-KB-wnE"/>
@@ -209,6 +257,9 @@
         <image name="video.badge.plus.fill" catalog="system" width="128" height="88"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

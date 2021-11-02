@@ -14,11 +14,21 @@ class CreateMeetingViewController: UIViewController {
     @IBOutlet var meetingTitle: UITextField!
     @IBOutlet var participantName: UITextField!
     @IBOutlet var createButton: UIButton!
+    @IBOutlet var loadingView: UIView!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        meetingTitle.layer.borderWidth = 1
+        meetingTitle.layer.borderColor = UIColor.systemIndigo.cgColor
+        meetingTitle.layer.cornerRadius = 10
+        participantName.layer.borderWidth = 1
+        participantName.layer.borderColor = UIColor.systemIndigo.cgColor
+        participantName.layer.cornerRadius = 10
+        
+        loadingView.isHidden = true
     }
     
     @IBAction func createButtonAction () {
@@ -33,8 +43,19 @@ class CreateMeetingViewController: UIViewController {
     
     func createMeeting(meetingTitle: String, participantName: String) -> Void {
         let meetingDetails: Parameters = ["title": meetingTitle]
+        
+        activityIndicator.startAnimating()
+        loadingView.isHidden = false
+        self.view.isUserInteractionEnabled = false
+        
         AF.request("https://dyte-sample.herokuapp.com/meeting/create", method: .post, parameters: meetingDetails, encoding: JSONEncoding.prettyPrinted).responseString {
-            response in print("Response String: \(response.value ?? "error")")
+            response in
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
+                self.loadingView.isHidden = true
+                self.view.isUserInteractionEnabled = true
+            }
+            print("Response String: \(response.value ?? "error")")
             let data = response.value!.data(using: .utf8)
             do {
                 let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! Dictionary<String, AnyObject>
@@ -43,6 +64,12 @@ class CreateMeetingViewController: UIViewController {
             }
             catch {
                 print("caught error")
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(title: "Error", message: "Some error occurred, please try again later", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                    alert.view.tintColor = UIColor.systemIndigo
+                    self.present(alert, animated: true, completion: nil)
+                }
             }
         }
     }
@@ -50,8 +77,19 @@ class CreateMeetingViewController: UIViewController {
     func addParticipant(meetingID: String, roomName: String, participantName: String) -> Void {
         let userDetails: Parameters = [ "name": participantName ]
         let participantDetails: Parameters = [ "meetingId": meetingID, "clientSpecificId": UUID().uuidString, "userDetails": userDetails ]
+        
+        activityIndicator.startAnimating()
+        loadingView.isHidden = false
+        self.view.isUserInteractionEnabled = false
+        
         AF.request("https://dyte-sample.herokuapp.com/participant/create", method: .post, parameters: participantDetails, encoding: JSONEncoding.prettyPrinted).responseString {
-            response in print("Response String: \(response.value ?? "error")")
+            response in
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
+                self.loadingView.isHidden = true
+                self.view.isUserInteractionEnabled = true
+            }
+            print("Response String: \(response.value ?? "error")")
             let data = response.value!.data(using: .utf8)
             do {
                 let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! Dictionary<String, AnyObject>
@@ -61,10 +99,15 @@ class CreateMeetingViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.addDyteView(roomName: roomName, authToken: authToken)
                 }
-                
             }
             catch {
                 print("caught error")
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(title: "Error", message: "Some error occurred, please try again later", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                    alert.view.tintColor = UIColor.systemIndigo
+                    self.present(alert, animated: true, completion: nil)
+                }
             }
         }
     }
