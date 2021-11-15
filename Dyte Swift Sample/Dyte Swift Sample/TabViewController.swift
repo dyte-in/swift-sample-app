@@ -1,13 +1,20 @@
 //
-//  ViewController.swift
-//  ViewController
+//  TabViewController.swift
+//  TabViewController
 //
-//  Created by Akshay Bhalotia on 01/11/21.
+//  Created by Akshay Bhalotia on 12/11/21.
 //
 
 import UIKit
 
-class ViewController: UITabBarController {
+class TabViewController: UITabBarController {
+    
+    var demoType: demoOptions!
+    
+    public enum presetType {
+        case host
+        case participant
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
