@@ -41,7 +41,11 @@
 
 ## About The Project
 
-![App Screen Shot](./screenshot-1.png "Sample App Screen Shot")
+![App Screen Shot 1](./screenshot-1.png "Sample App Screen Shot 1")
+![App Screen Shot 2](./screenshot-2.png "Sample App Screen Shot 2")
+![App Screen Shot 3](./screenshot-3.png "Sample App Screen Shot 3")
+![App Screen Shot 4](./screenshot-4.png "Sample App Screen Shot 4")
+![App Screen Shot 5](./screenshot-5.png "Sample App Screen Shot 5")
 
 ### Built With
 
@@ -88,7 +92,7 @@ To get a local copy up and running follow these simple steps.
 
 4. Run in simulator by pressing `⌘+R` or selecting `Run` from `Product` menu in Xcode.
 
-5. To run on a real device, you would need to
+5. To run on a real device, you would need to connect your device while Xcode is open. A prompt will appear on your device to trust the computer, and on accepting that Xcode would detect your device. After a few moments of wait, during which Xcode prepares your device to accept development builds, you would be able to see your device at the top of the list in the target device list in Xcode.
 
 <!-- USAGE EXAMPLES -->
 
