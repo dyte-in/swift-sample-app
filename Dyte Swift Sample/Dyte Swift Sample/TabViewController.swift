@@ -9,8 +9,11 @@ import UIKit
 
 class TabViewController: UITabBarController {
     
+    //  custom property to hold the demo type
+    //  makes it easier for all child controllers to access
     var demoType: demoOptions!
     
+    // the two basic roles types we will be working with
     public enum presetType {
         case host
         case participant

@@ -7,6 +7,8 @@
 
 import UIKit
 
+//  the four features that we are going to demo
+//  saved as enums to make passing data around safer
 public enum demoOptions {
     case group_call
     case webinar
@@ -23,6 +25,8 @@ class DemoOptionsViewController: UIViewController {
     }
     
     @IBAction func groupCallAction(_ sender: Any) {
+        //  pass the appropriate sender to the segue
+        //  so that it is available to the next controller
         performSegue(withIdentifier: "segueToJoinScreen", sender: demoOptions.group_call)
     }
     
@@ -39,6 +43,7 @@ class DemoOptionsViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //  set the demo type for the next controller
         guard let destinationVC = segue.destination as? TabViewController else {return}
         destinationVC.demoType = sender as? demoOptions
     }
