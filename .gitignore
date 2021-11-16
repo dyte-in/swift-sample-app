@@ -39,11 +39,11 @@ DerivedData/
 /*.gcno
 
 ### Xcode Patch ###
-*.xcodeproj/*
-!*.xcodeproj/project.pbxproj
-!*.xcodeproj/xcshareddata/
-!*.xcworkspace/contents.xcworkspacedata
-**/xcshareddata/WorkspaceSettings.xcsettings
+# *.xcodeproj/*
+# !*.xcodeproj/project.pbxproj
+# !*.xcodeproj/xcshareddata/
+# !*.xcworkspace/contents.xcworkspacedata
+# **/xcshareddata/WorkspaceSettings.xcsettings
 
 # End of https://www.toptal.com/developers/gitignore/api/xcode,cocoapods
 
@@ -82,5 +82,5 @@ Package.resolved
 Pods/
 #
 # Add this line if you want to avoid checking in source code from the Xcode workspace
-*.xcworkspace
+# *.xcworkspace
 
