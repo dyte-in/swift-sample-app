@@ -68,6 +68,8 @@ To get a local copy up and running follow these simple steps.
   ```sh
   sudo gem install cocoapods
   ```
+- A working backend that can connect to Dyte APIs
+  - This app currently connects to our sample backend implementation (https://github.com/dyte-in/sample-app-backend), currently hosted at https://dyte-sample.herokuapp.com - this can be grepped and replaced if you want it to work with your own backend implementation
 
 ### Installation
 
