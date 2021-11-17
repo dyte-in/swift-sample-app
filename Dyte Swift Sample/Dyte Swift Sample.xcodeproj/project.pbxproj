@@ -7,26 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92426EC2273E590C00E66523 /* DemoOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92426EC1273E590C00E66523 /* DemoOptionsViewController.swift */; };
+		92426EC4273E876D00E66523 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92426EC3273E876D00E66523 /* TabViewController.swift */; };
 		92CA705D272FDDCE006A678C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CA705C272FDDCE006A678C /* AppDelegate.swift */; };
 		92CA705F272FDDCE006A678C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CA705E272FDDCE006A678C /* SceneDelegate.swift */; };
-		92CA7061272FDDCE006A678C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CA7060272FDDCE006A678C /* ViewController.swift */; };
 		92CA7064272FDDCE006A678C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92CA7062272FDDCE006A678C /* Main.storyboard */; };
 		92CA7066272FDDD1006A678C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92CA7065272FDDD1006A678C /* Assets.xcassets */; };
 		92CA7069272FDDD1006A678C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92CA7067272FDDD1006A678C /* LaunchScreen.storyboard */; };
+		92EAA90E2730252C000ECC30 /* CreateMeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EAA90D2730252C000ECC30 /* CreateMeetingViewController.swift */; };
+		92EAA9102730253D000ECC30 /* JoinMeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EAA90F2730253D000ECC30 /* JoinMeetingViewController.swift */; };
 		CDDF0FC17E750C8723CA1BE2 /* Pods_Dyte_Swift_Sample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B45BA29C0491DF1AF3D05E81 /* Pods_Dyte_Swift_Sample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		47CF75F1374E5B68F88FF2FA /* Pods-Dyte Swift Sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dyte Swift Sample.release.xcconfig"; path = "Target Support Files/Pods-Dyte Swift Sample/Pods-Dyte Swift Sample.release.xcconfig"; sourceTree = "<group>"; };
 		76FC8D4DB1C93C7AEA291FAF /* Pods-Dyte Swift Sample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dyte Swift Sample.debug.xcconfig"; path = "Target Support Files/Pods-Dyte Swift Sample/Pods-Dyte Swift Sample.debug.xcconfig"; sourceTree = "<group>"; };
+		92426EC1273E590C00E66523 /* DemoOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoOptionsViewController.swift; sourceTree = "<group>"; };
+		92426EC3273E876D00E66523 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		92CA7059272FDDCE006A678C /* Dyte Swift Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dyte Swift Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92CA705C272FDDCE006A678C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92CA705E272FDDCE006A678C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		92CA7060272FDDCE006A678C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		92CA7063272FDDCE006A678C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		92CA7065272FDDD1006A678C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92CA7068272FDDD1006A678C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		92CA706A272FDDD1006A678C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92EAA90D2730252C000ECC30 /* CreateMeetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMeetingViewController.swift; sourceTree = "<group>"; };
+		92EAA90F2730253D000ECC30 /* JoinMeetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinMeetingViewController.swift; sourceTree = "<group>"; };
 		B45BA29C0491DF1AF3D05E81 /* Pods_Dyte_Swift_Sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dyte_Swift_Sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -72,8 +78,11 @@
 			isa = PBXGroup;
 			children = (
 				92CA705C272FDDCE006A678C /* AppDelegate.swift */,
+				92426EC1273E590C00E66523 /* DemoOptionsViewController.swift */,
+				92426EC3273E876D00E66523 /* TabViewController.swift */,
 				92CA705E272FDDCE006A678C /* SceneDelegate.swift */,
-				92CA7060272FDDCE006A678C /* ViewController.swift */,
+				92EAA90D2730252C000ECC30 /* CreateMeetingViewController.swift */,
+				92EAA90F2730253D000ECC30 /* JoinMeetingViewController.swift */,
 				92CA7062272FDDCE006A678C /* Main.storyboard */,
 				92CA7065272FDDD1006A678C /* Assets.xcassets */,
 				92CA7067272FDDD1006A678C /* LaunchScreen.storyboard */,
@@ -88,7 +97,6 @@
 				76FC8D4DB1C93C7AEA291FAF /* Pods-Dyte Swift Sample.debug.xcconfig */,
 				47CF75F1374E5B68F88FF2FA /* Pods-Dyte Swift Sample.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -225,7 +233,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92CA7061272FDDCE006A678C /* ViewController.swift in Sources */,
+				92426EC4273E876D00E66523 /* TabViewController.swift in Sources */,
+				92426EC2273E590C00E66523 /* DemoOptionsViewController.swift in Sources */,
+				92EAA9102730253D000ECC30 /* JoinMeetingViewController.swift in Sources */,
+				92EAA90E2730252C000ECC30 /* CreateMeetingViewController.swift in Sources */,
 				92CA705D272FDDCE006A678C /* AppDelegate.swift in Sources */,
 				92CA705F272FDDCE006A678C /* SceneDelegate.swift in Sources */,
 			);
@@ -304,7 +315,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -359,7 +370,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -377,6 +388,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QVRMZNCH5A;
+				ENABLE_BITCODE = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Dyte Swift Sample/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -405,6 +418,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QVRMZNCH5A;
+				ENABLE_BITCODE = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Dyte Swift Sample/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
