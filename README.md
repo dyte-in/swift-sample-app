@@ -29,7 +29,6 @@
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-- [Usage](#usage)
 - [Version History](#version-history)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
@@ -96,7 +95,7 @@ To get a local copy up and running follow these simple steps.
 
 5. To run on a real device, you would need to connect your device while Xcode is open. A prompt will appear on your device to trust the computer, and on accepting that Xcode would detect your device. After a few moments of wait, during which Xcode prepares your device to accept development builds, you would be able to see your device at the top of the list in the target device list in Xcode.
 
-<!-- USAGE EXAMPLES -->
+<!-- CHANGELOG -->
 
 ## Version History
 
