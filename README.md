@@ -40,11 +40,7 @@
 
 ## About The Project
 
-![App Screen Shot 1](./screenshot-1.png "Sample App Screen Shot 1")
-![App Screen Shot 2](./screenshot-2.png "Sample App Screen Shot 2")
-![App Screen Shot 3](./screenshot-3.png "Sample App Screen Shot 3")
-![App Screen Shot 4](./screenshot-4.png "Sample App Screen Shot 4")
-![App Screen Shot 5](./screenshot-5.png "Sample App Screen Shot 5")
+ <img src="https://github.com/dyte-in/swift-sample-app/blob/main/screenshot-1.png" width=175 height=400>  <img src="https://github.com/dyte-in/swift-sample-app/blob/main/screenshot-2.png" width=175 height=400>  <img src="https://github.com/dyte-in/swift-sample-app/blob/main/screenshot-3.png" width=175 height=400> <img src="https://github.com/dyte-in/swift-sample-app/blob/main/screenshot-4.png" width=175 height=400> <img src="https://github.com/dyte-in/swift-sample-app/blob/main/screenshot-5.png" width=175 height=400>
 
 ### Built With
 
