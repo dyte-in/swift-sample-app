@@ -48,7 +48,7 @@ class JoinMeetingViewController: UIViewController {
         //  API calls to Dyte should NEVER be made from the frontend.
         //  API calls should be made from your own backend,
         //  and the app should connect to your backend to do operations like get all meetings.
-        //  A sample implementation of the backend can be found at: https://github.com/dyte-in/sample-app-backend.
+        //  A sample implementation of the backend can be found at: https://github.com/dyte-in/backend-sample-app.
         //  The below request is being made to a hosted instance of the above sample backend,
         //  so treat it as if it were your own backend and not Dyte.
         AF.request("https://dyte-sample.herokuapp.com/meetings", method: .get, parameters: nil, encoding: JSONEncoding.prettyPrinted).responseString {
@@ -73,6 +73,10 @@ class JoinMeetingViewController: UIViewController {
             catch {
                 print("caught error")
                 DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                    self.loadingView.isHidden = true
+                    self.view.isUserInteractionEnabled = true
+                    
                     let alert = UIAlertController(title: "Error", message: "Some error occurred, please try again later", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .cancel))
                     alert.view.tintColor = UIColor.systemIndigo
@@ -160,7 +164,7 @@ class JoinMeetingViewController: UIViewController {
         //  API calls to Dyte should NEVER be made from the frontend.
         //  API calls should be made from your own backend,
         //  and the app should connect to your backend to do operations like add participant.
-        //  A sample implementation of the backend can be found at: https://github.com/dyte-in/sample-app-backend.
+        //  A sample implementation of the backend can be found at: https://github.com/dyte-in/backend-sample-app.
         //  The below request is being made to a hosted instance of the above sample backend,
         //  so treat it as if it were your own backend and not Dyte.
         AF.request("https://dyte-sample.herokuapp.com/participant/create", method: .post, parameters: participantDetails, encoding: JSONEncoding.prettyPrinted).responseString {
@@ -188,6 +192,10 @@ class JoinMeetingViewController: UIViewController {
             catch {
                 print("caught error")
                 DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                    self.loadingView.isHidden = true
+                    self.view.isUserInteractionEnabled = true
+                    
                     let alert = UIAlertController(title: "Error", message: "Some error occurred, please try again later", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .cancel))
                     alert.view.tintColor = UIColor.systemIndigo
@@ -310,6 +318,14 @@ extension JoinMeetingViewController: UISearchBarDelegate {
         searchBar.text = ""
         self.tableView.reloadData()
     }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
 }
 
 //  Meeting event listener delegate
@@ -320,7 +336,7 @@ extension JoinMeetingViewController: DyteMeetingViewDelegate {
             //  Add custom controls to the view, based on the demo type
             if (self.tabBarController as! TabViewController).demoType == .custom_controls {
                 (self.view.viewWithTag(10) as! DyteMeetingView).updateUiConfig(["controlBar" : false ])
-                let toolbar = UIToolbar(frame: CGRect(x: 0, y: self.view.safeAreaLayoutGuide.layoutFrame.height+self.view.safeAreaLayoutGuide.layoutFrame.origin.y-40, width: self.view.safeAreaLayoutGuide.layoutFrame.width, height: 40))
+                let toolbar = UIToolbar(frame: CGRect(x: 0, y: self.view.safeAreaLayoutGuide.layoutFrame.size.height+self.view.safeAreaLayoutGuide.layoutFrame.origin.y-40, width: self.view.safeAreaLayoutGuide.layoutFrame.size.width, height: 40))
                 print(toolbar.frame)
                 toolbar.tag = 20
                 toolbar.tintColor = UIColor.systemIndigo
