@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (5.4.4)
-  - DyteSdk (1.23)
+  - DyteSdk (1.26)
 
 DEPENDENCIES:
   - Alamofire
@@ -13,8 +13,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
-  DyteSdk: bf01d35c234a9865d5862e94e1253a2033018583
+  DyteSdk: 3042b951bdea586999774e0a35be21c3cd02a21b
 
 PODFILE CHECKSUM: f06ea2e92afa900f9147f3abcfeb133a67e4bc8c
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2
