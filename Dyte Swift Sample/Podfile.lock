@@ -1,20 +1,24 @@
 PODS:
-  - Alamofire (5.4.4)
-  - DyteSdk (1.26)
+  - Alamofire (5.5.0)
+  - DyteSdk (1.34.1):
+    - LogRocket (= 0.28.0)
+  - LogRocket (0.28.0)
 
 DEPENDENCIES:
   - Alamofire
-  - DyteSdk
+  - DyteSdk (= 1.34.1)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - DyteSdk
+    - LogRocket
 
 SPEC CHECKSUMS:
-  Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
-  DyteSdk: 3042b951bdea586999774e0a35be21c3cd02a21b
+  Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
+  DyteSdk: 7030abb07e2fe37f5c905bdb01173cc7609a4ccb
+  LogRocket: e9ae047f19ae6598e10234aa4d43906d55af1ae0
 
-PODFILE CHECKSUM: f06ea2e92afa900f9147f3abcfeb133a67e4bc8c
+PODFILE CHECKSUM: 74d89afd383606637b97857b0546498348b787be
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.10.1

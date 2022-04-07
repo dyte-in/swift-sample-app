@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '11.0'
+platform :ios, '12.0'
 
 target 'Dyte Swift Sample' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -7,6 +7,6 @@ target 'Dyte Swift Sample' do
 
   # Pods for Dyte Swift Sample
   pod 'Alamofire'
-  pod 'DyteSdk'
+  pod 'DyteSdk', '1.34.1'
 
 end
